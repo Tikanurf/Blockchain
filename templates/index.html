@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    /* Styling khusus halaman index agar lebih menarik */
+    .hero-section {
+        text-align: center;
+        padding: 60px 20px;
+        margin-bottom: 40px;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(to right, #38bdf8, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto 40px auto;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+    .feature-card {
+        background: var(--bg-card);
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-color);
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        display: block;
+    }
+</style>
+
+<div class="hero-section">
+    <h1 class="hero-title">Protect Your Creative Work<br>on the Blockchain</h1>
+    <p class="hero-subtitle">
+        Create immutable, timestamped proof of ownership for your art, documents, and code. 
+        Secured by Ethereum smart contracts.
+    </p>
+    <div style="display: flex; gap: 15px; justify-content: center;">
+        <a href="{{ url_for('register') }}" class="btn">Start Registering</a>
+        <a href="{{ url_for('verify') }}" class="btn btn-outline">Verify Work</a>
+    </div>
+</div>
+
+<div class="features-grid">
+    <div class="feature-card">
+        <span class="feature-icon">⛓️</span>
+        <h3>Immutable Proof</h3>
+        <p>Once registered, your work's fingerprint is stored on the blockchain forever. It cannot be altered, deleted, or backdated by anyone.</p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-icon">🔍</span>
+        <h3>Instant Verification</h3>
+        <p>Anyone can verify the authenticity of your work by uploading the file or entering the Work ID. No intermediaries needed.</p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-icon">📂</span>
+        <h3>Any File Type</h3>
+        <p>Support for images, audio, PDF documents, and code. We calculate the SHA-256 hash locally to ensure your privacy.</p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-icon">🛡️</span>
+        <h3>Full Ownership</h3>
+        <p>You hold the keys. The proof of existence is cryptographically linked to your wallet address.</p>
+    </div>
+</div>
+{% endblock %}
